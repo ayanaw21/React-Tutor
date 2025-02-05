@@ -30,20 +30,27 @@ const books = [
 		author: "Mel Robbins",
 		title: "The Let Them Theory",
 		img: "./images/The let them.jpg",
+		id: 1,
 	},
 	{
 		author: "Freida Mcfadden",
 		title: "The House Maid",
 		img: "./images/book-1.jpg",
+		id: 2,
 	},
 	{
 		author: "James Clear",
 		title: "The Atomic Habit ",
 		img: "./images/Atomic-habits.jpg",
+		id: 3,
 	},
 ];
 
 const BookList = () => {
+	const someValue = "shakeAndBake";
+	const displayValue = () => {
+		console.log(someValue);
+	}
 	return (
 		<section className="booklist">
 			{/* <Book
@@ -61,25 +68,34 @@ const BookList = () => {
 				title={thirdBook.title}
 				img={thirdBook.img}
 			/> */}
+		
 			{books.map((book) => {
+				// const {author, title, img,id} = book;
 				return (
-					<Book
-						author={book.author}
-						title={book.title}
-						img={book.img}
-					/>
-					
+					// <Book
+					// 	author={author}
+					// 	title={title}
+					// 	img={img}
+					// 	key = {id}
+					// />
+					// <Book book={book} key={book.id} />
+					<Book {...book} key={book.id} displayValue={displayValue}/>
 				);
 			})}
 		</section>
 	);
 };
+
+
 const Book = (props) => {
-	const { img, title, author } = props;
+	// const { img, title, author } = props.book;
+	const { img, title, author,displayValue } = props; //if we use spread operator
+	
 	return (
 		<article className="book">
 			<img src={img} alt={title} />
 			<h2>{title}</h2>
+			<button onClick={displayValue}>display title</button>
 			<h4>{author}</h4>
 		</article>
 	);
