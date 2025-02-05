@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import { books } from "./books";
+import Book from "./Book";
 import "./index.css";
 // import  './assets'
 // function Greetings() {
@@ -25,50 +28,10 @@ import "./index.css";
 // 	);
 // };
 
-const books = [
-	{
-		author: "Mel Robbins",
-		title: "The Let Them Theory",
-		img: "./images/The let them.jpg",
-		id: 1,
-	},
-	{
-		author: "Freida Mcfadden",
-		title: "The House Maid",
-		img: "./images/book-1.jpg",
-		id: 2,
-	},
-	{
-		author: "James Clear",
-		title: "The Atomic Habit ",
-		img: "./images/Atomic-habits.jpg",
-		id: 3,
-	},
-];
 
 const BookList = () => {
-	const someValue = "shakeAndBake";
-	const displayValue = () => {
-		console.log(someValue);
-	}
 	return (
 		<section className="booklist">
-			{/* <Book
-				author={firstBook.author}
-				title={firstBook.title}
-				img={firstBook.img}
-			/>
-			<Book
-				author={secondBook.author}
-				title={secondBook.title}
-				img={secondBook.img}
-			/>
-			<Book
-				author={thirdBook.author}
-				title={thirdBook.title}
-				img={thirdBook.img}
-			/> */}
-		
 			{books.map((book) => {
 				// const {author, title, img,id} = book;
 				return (
@@ -79,7 +42,7 @@ const BookList = () => {
 					// 	key = {id}
 					// />
 					// <Book book={book} key={book.id} />
-					<Book {...book} key={book.id} displayValue={displayValue}/>
+					<Book {...book} key={book.id} />
 				);
 			})}
 		</section>
@@ -87,19 +50,6 @@ const BookList = () => {
 };
 
 
-const Book = (props) => {
-	// const { img, title, author } = props.book;
-	const { img, title, author,displayValue } = props; //if we use spread operator
-	
-	return (
-		<article className="book">
-			<img src={img} alt={title} />
-			<h2>{title}</h2>
-			<button onClick={displayValue}>display title</button>
-			<h4>{author}</h4>
-		</article>
-	);
-};
 // const Image = () => (
 // 	<img src="./images/The let them.jpg" alt="The Let Them Theory" />
 // );
