@@ -28,27 +28,28 @@ import "./index.css";
 // 	);
 // };
 
-
 const BookList = () => {
 	return (
-		<section className="booklist">
-			{books.map((book) => {
-				// const {author, title, img,id} = book;
-				return (
-					// <Book
-					// 	author={author}
-					// 	title={title}
-					// 	img={img}
-					// 	key = {id}
-					// />
-					// <Book book={book} key={book.id} />
-					<Book {...book} key={book.id} />
-				);
-			})}
-		</section>
+		<>
+			<h1>Amazon best sellers</h1>
+			<section className="booklist">
+				{books.map((book, index) => {
+					// const {author, title, img,id} = book;
+					return (
+						// <Book
+						// 	author={author}
+						// 	title={title}
+						// 	img={img}
+						// 	key = {id}
+						// />
+						// <Book book={book} key={book.id} />
+						<Book {...book} key={book.id} number={index} />
+					);
+				})}
+			</section>
+		</>
 	);
 };
-
 
 // const Image = () => (
 // 	<img src="./images/The let them.jpg" alt="The Let Them Theory" />
